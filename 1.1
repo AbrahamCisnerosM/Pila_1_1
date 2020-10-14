@@ -1,0 +1,41 @@
+ public static void main(String[] args) {
+        char pila[] = new char[26];//Aqui creamos nuetro arreglo para guardar las LETRAS
+        int op, tope = 0;//estas son las variables que necesitamos para nuestro programa
+        Scanner sc = new Scanner(System.in);
+        do {//para hacer un menu de diferentes opciones utilizamos un ciclo DO WHILE
+            System.out.println("1.- Llenar");
+            System.out.println("2.- Mostrar");
+            System.out.println("3.- Eliminar");
+            System.out.println("4.- Agregar");
+            System.out.println("5.- Salir");
+            op = sc.nextInt();//aqui se guarda la opcion que elige el usuario
+            switch (op) {//esto es como un if pero con mas opciones
+                case 1: {//esto significa en caso de que la respuesta sea 1
+                    for (char x = 'A'; tope < 26; tope++) {
+                        pila[tope] = x; //aqui se asigna la letra a la pila
+                        x++;
+                    }
+                }
+                break;
+                case 2: {
+                    for (int x = tope - 1; x >= 0; x--) {//el primer dato en imprimirse debe ser el ultimo 
+                        System.out.print(pila[x] + " ");//dato agregado, por eso se comienza de atras a adelante
+                    }
+                    System.out.println("");
+                }
+                break;
+                case 3: {
+                    tope--;
+                }
+                break;
+                case 4: {
+                    pila[tope] = sc.next().charAt(0);//aqi solo se esta capturando el dato que desee el usuario
+                    tope++;
+                }
+                break;
+            }
+        } while (op != 5);
+
+    }
+
+}
